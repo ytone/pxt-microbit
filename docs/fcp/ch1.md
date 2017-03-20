@@ -7,7 +7,7 @@ as well as run the example in the web browser, and retrieve a file to
 install on a micro:bit.
 
 ## Figure 1.11
-LED Screen with code:
+Display on LED Screen:
 ```blocks
 basic.showIcon(IconNames.Square)
 led.plot(2, 2)
