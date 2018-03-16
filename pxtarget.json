@@ -199,8 +199,8 @@
     "compileService": {
         "yottaTarget": "bbc-microbit-classic-gcc",
         "yottaCorePackage": "microbit",
-        "githubCorePackage": "lancaster-university/microbit",
-        "gittag": "v2.0.0-rc11",
+        "githubCorePackage": "microbit-sam/microbit",
+        "gittag": "pf_v0.2.3",
         "serviceId": "microbit"
     },
     "serial": {
