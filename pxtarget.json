@@ -200,8 +200,8 @@
     "compileService": {
         "yottaTarget": "bbc-microbit-classic-gcc",
         "yottaCorePackage": "microbit",
-        "githubCorePackage": "microbit-foundation/microbit",
-        "gittag": "v2.1.0-rc1",
+        "githubCorePackage": "lancaster-university/microbit",
+        "gittag": "dal-integration-1",
         "serviceId": "microbit"
     },
     "serial": {
