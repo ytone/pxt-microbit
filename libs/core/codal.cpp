@@ -37,41 +37,51 @@ struct FreeList {
     FreeList *next;
 };
 
-static void initCodal() {
-
-    uBit.init();
-
-    // repeat error 4 times and restart as needed
-    microbit_panic_timeout(4);
-}
-
 void dumpDmesg() {}
 
 // ---------------------------------------------------------------------------
 // An adapter for the API expected by the run-time.
 // ---------------------------------------------------------------------------
 
-// We have the invariant that if [dispatchEvent] is registered against the DAL
-// for a given event, then [handlersMap] contains a valid entry for that
-// event.
-void dispatchEvent(MicroBitEvent e) {
+void dispatchEvent(MicroBitEvent e, void* action) {
     lastEvent = e;
-
-    auto curr = findBinding(e.source, e.value);
     auto value = fromInt(e.value);
-    if (curr)
-        runAction1(curr->action, value);
-
-    curr = findBinding(e.source, DEVICE_EVT_ANY);
-    if (curr)
-        runAction1(curr->action, value);
+    runAction1((Action)action, value);
 }
 
-void registerWithDal(int id, int event, Action a, int flags) {
-    // first time?
-    if (!findBinding(id, event))
-        uBit.messageBus.listen(id, event, dispatchEvent, flags);
-    setBinding(id, event, a);
+void dispatchBackgroundEvent(MicroBitEvent e, void* action) {
+    lastEvent = e;
+    auto value = fromInt(e.value);
+    runAction1((Action)action, value);
+}
+
+bool backgroundHandlerFlag = false;
+
+void registerWithDal(int id, int event, Action a) {
+    auto binding = findBinding(id, event);
+    if (!backgroundHandlerFlag) {
+        uBit.messageBus.remove(id, event, dispatchEvent);
+    }
+    uBit.messageBus.listen(id, event, backgroundHandle ? dispatchBackgroundEvent : dispatchEvent, (void*) a);
+    backgroundHandlerFlag = false;
+    incr((Action)a);
+}
+
+void unregisterFromDal(Action a) {
+    uBit.messageBus.remove(ANY, ANY, dispatchBackgroundEvent, (void*) a);
+}
+
+void deleteListener(MicroBitListener *l) {
+    if (l->cb == dispatchBackgroundEvent || l->cb == dispatchEvent)
+        decr((Action *)l->cb_arg);
+}
+
+static void initCodal() {
+    uBit.init();
+    uBit.messageBus.setListenerDeletionCallback(deleteListener);
+
+    // repeat error 4 times and restart as needed
+    microbit_panic_timeout(4);
 }
 
 void fiberDone(void *a) {

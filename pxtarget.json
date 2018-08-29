@@ -215,7 +215,7 @@
         "yottaTarget": "bbc-microbit-classic-gcc",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "lancaster-university/microbit",
-        "gittag": "dal-integration-1",
+        "gittag": " messagebus-patch",
         "serviceId": "microbit",
         "dockerImage": "pext/yotta:latest"
     },

@@ -113,7 +113,9 @@ int current_time_ms();
 void initRuntime();
 void sendSerial(const char *data, int len);
 int getSerialNumber();
-void registerWithDal(int id, int event, Action a, int flags = 16); // EVENT_LISTENER_DEFAULT_FLAGS
+bool backgroundHandlerFlag;
+void registerWithDal(int id, int event, Action a);
+void unregisterFromDal(Action a);
 void runInParallel(Action a);
 void runForever(Action a);
 void waitForEvent(int id, int event);
@@ -233,15 +235,6 @@ bool eqq_bool(TValue a, TValue b);
 void error(PXT_ERROR code, int subcode = 0);
 void exec_binary(unsigned *pc);
 void start();
-
-struct HandlerBinding {
-    HandlerBinding *next;
-    int source;
-    int value;
-    Action action;
-};
-HandlerBinding *findBinding(int source, int value);
-void setBinding(int source, int value, Action act);
 
 // The standard calling convention is:
 //   - when a pointer is loaded from a local/global/field etc, and incr()ed

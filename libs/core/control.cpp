@@ -266,6 +266,25 @@ namespace control {
     }
 
     /**
+     * Remove an handler from all events
+     */
+    //% weight=20 blockGap=8 blockId="remove_handler" block="remove handler"
+    //% help=control/remove-handler
+    //% blockExternalInputs=1
+    void removeHandler(Action handler) {
+        unregisterFromDal(handler);
+    }
+
+    /**
+     * The next handler to be added will be put in the background, which supports multiple handlers.
+     */
+    //% weight=20 blockGap=8 blockId="background_handler" block="background handler"
+    //% help=control/background-handler
+    void backgroundHandler() {
+        backgroundHandlerFlag = true;
+    }
+
+    /**
     * Gets the value of the last event executed on the bus
     */
     //% blockId=control_event_value" block="event value"
