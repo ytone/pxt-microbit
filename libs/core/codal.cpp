@@ -55,10 +55,12 @@ void dispatchBackgroundEvent(MicroBitEvent e, void* action) {
     runAction1((Action)action, value);
 }
 
-bool backgroundHandlerFlag = false;
+static bool backgroundHandlerFlag = false;
+void setBackgroundHandlerFlag() {
+    backgroundHandlerFlag = true;
+}
 
 void registerWithDal(int id, int event, Action a) {
-    auto binding = findBinding(id, event);
     if (!backgroundHandlerFlag) {
         uBit.messageBus.remove(id, event, dispatchEvent);
     }

@@ -403,6 +403,21 @@ declare namespace control {
     function onEvent(src: int32, value: int32, handler: () => void): void;
 
     /**
+     * Remove an handler from all events
+     */
+    //% weight=20 blockGap=8 blockId="remove_handler" block="remove handler"
+    //% help=control/remove-handler
+    //% blockExternalInputs=1 shim=control::removeHandler
+    function removeHandler(handler: () => void): void;
+
+    /**
+     * The next handler to be added will be put in the background, which supports multiple handlers.
+     */
+    //% weight=20 blockGap=8 blockId="background_handler" block="background handler"
+    //% help=control/background-handler shim=control::backgroundHandler
+    function backgroundHandler(): void;
+
+    /**
      * Gets the value of the last event executed on the bus
      */
     //% blockId=control_event_value" block="event value"

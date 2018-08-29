@@ -281,7 +281,7 @@ namespace control {
     //% weight=20 blockGap=8 blockId="background_handler" block="background handler"
     //% help=control/background-handler
     void backgroundHandler() {
-        backgroundHandlerFlag = true;
+        setBackgroundHandlerFlag();
     }
 
     /**
