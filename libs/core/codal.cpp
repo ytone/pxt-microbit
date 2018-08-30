@@ -62,20 +62,21 @@ void setBackgroundHandlerFlag() {
 
 void registerWithDal(int id, int event, Action a) {
     if (!backgroundHandlerFlag) {
-        uBit.messageBus.remove(id, event, dispatchEvent);
+        uBit.messageBus.ignore(id, event, dispatchEvent);
     }
-    uBit.messageBus.listen(id, event, backgroundHandle ? dispatchBackgroundEvent : dispatchEvent, (void*) a);
+    uBit.messageBus.listen(id, event, backgroundHandlerFlag ? dispatchBackgroundEvent : dispatchEvent, (void*) a);
     backgroundHandlerFlag = false;
     incr((Action)a);
 }
 
 void unregisterFromDal(Action a) {
-    uBit.messageBus.remove(ANY, ANY, dispatchBackgroundEvent, (void*) a);
+    uBit.messageBus.ignore(MICROBIT_ID_ANY, MICROBIT_EVT_ANY, dispatchBackgroundEvent, (void*) a);
 }
 
 void deleteListener(MicroBitListener *l) {
-    if (l->cb == dispatchBackgroundEvent || l->cb == dispatchEvent)
-        decr((Action *)l->cb_arg);
+    if (l->cb_param == (void (*)(MicroBitEvent, void*))dispatchBackgroundEvent || 
+        l->cb_param == (void (*)(MicroBitEvent, void*))dispatchEvent)
+        decr((Action)(l->cb_arg));
 }
 
 static void initCodal() {

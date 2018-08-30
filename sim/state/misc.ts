@@ -61,6 +61,14 @@ namespace pxsim.control {
             : "42");
     }
 
+    export function backgroundHandler() {
+        // TODO
+    }
+
+    export function removeHandler(handler: RefAction) {
+        // TODO
+    }
+
     export function onEvent(id: number, evid: number, handler: RefAction) {
         pxtcore.registerWithDal(id, evid, handler)
     }

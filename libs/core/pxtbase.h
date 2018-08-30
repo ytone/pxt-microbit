@@ -113,7 +113,7 @@ int current_time_ms();
 void initRuntime();
 void sendSerial(const char *data, int len);
 int getSerialNumber();
-bool setBackgroundHandlerFlag();
+void setBackgroundHandlerFlag();
 void registerWithDal(int id, int event, Action a);
 void unregisterFromDal(Action a);
 void runInParallel(Action a);
