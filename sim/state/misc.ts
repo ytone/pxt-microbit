@@ -62,7 +62,7 @@ namespace pxsim.control {
     }
 
     export function backgroundHandler() {
-        // TODO
+        board().bus.setBackgroundHandlerFlag();
     }
 
     export function removeHandler(handler: RefAction) {
