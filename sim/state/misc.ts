@@ -66,7 +66,7 @@ namespace pxsim.control {
     }
 
     export function removeHandler(handler: RefAction) {
-        // TODO
+        board().bus.remove(handler);
     }
 
     export function onEvent(id: number, evid: number, handler: RefAction) {
