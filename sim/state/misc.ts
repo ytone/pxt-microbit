@@ -161,6 +161,7 @@ namespace pxsim.pins {
     }
 }
 
+
 namespace pxsim.devices {
     export function tellCameraTo(action: number) {
         // TODO
