@@ -37,9 +37,29 @@ struct FreeList {
     FreeList *next;
 };
 
+void dispatchBackground(MicroBitEvent e, void* action) {
+    lastEvent = e;
+    auto value = fromInt(e.value);
+    runAction1((Action)action, value);
+}
+
+void dispatchForeground(MicroBitEvent e, void* action) {
+    lastEvent = e;
+    auto value = fromInt(e.value);
+    runAction1((Action)action, value);
+}
+
+void deleteListener(MicroBitListener *l) {
+    if (l->cb_param == (void (*)(MicroBitEvent, void*))dispatchBackground || 
+        l->cb_param == (void (*)(MicroBitEvent, void*))dispatchForeground)
+        decr((Action)(l->cb_arg));
+}
+
 static void initCodal() {
 
     uBit.init();
+
+    uBit.messageBus.setListenerDeletionCallback(deleteListener);
 
     // repeat error 4 times and restart as needed
     microbit_panic_timeout(4);
@@ -51,27 +71,22 @@ void dumpDmesg() {}
 // An adapter for the API expected by the run-time.
 // ---------------------------------------------------------------------------
 
-// We have the invariant that if [dispatchEvent] is registered against the DAL
-// for a given event, then [handlersMap] contains a valid entry for that
-// event.
-void dispatchEvent(MicroBitEvent e) {
-    lastEvent = e;
-
-    auto curr = findBinding(e.source, e.value);
-    auto value = fromInt(e.value);
-    if (curr)
-        runAction1(curr->action, value);
-
-    curr = findBinding(e.source, DEVICE_EVT_ANY);
-    if (curr)
-        runAction1(curr->action, value);
+static bool backgroundHandlerFlag = false;
+void setBackgroundHandlerFlag() {
+    backgroundHandlerFlag = true;
 }
 
-void registerWithDal(int id, int event, Action a, int flags) {
-    // first time?
-    if (!findBinding(id, event))
-        uBit.messageBus.listen(id, event, dispatchEvent, flags);
-    setBinding(id, event, a);
+void registerWithDal(int id, int event, Action a) {
+    if (!backgroundHandlerFlag) {
+        uBit.messageBus.ignore(id, event, dispatchForeground);
+    }
+    uBit.messageBus.listen(id, event, backgroundHandlerFlag ? dispatchBackground : dispatchForeground, a);
+    backgroundHandlerFlag = false;
+    incr((Action)a);
+}
+
+void unregisterFromDal(Action a) { 
+    uBit.messageBus.ignore(MICROBIT_EVT_ANY, MICROBIT_EVT_ANY, dispatchBackground, (void*) a);
 }
 
 void fiberDone(void *a) {

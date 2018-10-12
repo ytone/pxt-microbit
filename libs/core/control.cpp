@@ -311,4 +311,18 @@ namespace control {
     void __midiSend(Buffer buffer) {
         // this is a stub to support the simulator
     }
+
+    /** The next handler to be added will be put in the background, 
+        which supports multiple handlers per event type. */
+    //% 
+    void nextHandlerToBackground() {
+        setBackgroundHandlerFlag();
+    }
+
+    /** Remove a handler from the background for all events */
+    //% 
+    void removeFromBackground(Action handler) {
+        unregisterFromDal(handler);
+    }
+
 }
