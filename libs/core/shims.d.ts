@@ -324,7 +324,7 @@ declare namespace input {
     /**
      * Gets the number of milliseconds elapsed since power on.
      */
-    //% help=input/running-time weight=50 blockGap=16
+    //% help=input/running-time weight=50 blockGap=8
     //% blockId=device_get_running_time block="running time (ms)"
     //% advanced=true shim=input::runningTime
     function runningTime(): int32;
@@ -341,7 +341,8 @@ declare namespace input {
      * Obsolete, compass calibration is automatic.
      */
     //% help=input/calibrate-compass advanced=true
-    //% blockId="input_compass_calibrate" block="calibrate compass" shim=input::calibrateCompass
+    //% blockId="input_compass_calibrate" block="calibrate compass"
+    //% weight=45 shim=input::calibrateCompass
     function calibrateCompass(): void;
 
     /**
@@ -463,7 +464,8 @@ declare namespace led {
     //% help=led/plot weight=78
     //% blockId=device_plot block="plot|x %x|y %y" blockGap=8
     //% parts="ledmatrix"
-    //% x.min=0 x.max=4 y.min=0 y.max=4 shim=led::plot
+    //% x.min=0 x.max=4 y.min=0 y.max=4
+    //% x.fieldOptions.precision=1 y.fieldOptions.precision=1 shim=led::plot
     function plot(x: int32, y: int32): void;
 
     /**
@@ -476,6 +478,7 @@ declare namespace led {
     //% blockId=device_plot_brightness block="plot|x %x|y %y|brightness %brightness" blockGap=8
     //% parts="ledmatrix"
     //% x.min=0 x.max=4 y.min=0 y.max=4 brightness.min=0 brightness.max=255
+    //% x.fieldOptions.precision=1 y.fieldOptions.precision=1
     //% advanced=true shim=led::plotBrightness
     function plotBrightness(x: int32, y: int32, brightness: int32): void;
 
@@ -487,7 +490,8 @@ declare namespace led {
     //% help=led/unplot weight=77
     //% blockId=device_unplot block="unplot|x %x|y %y" blockGap=8
     //% parts="ledmatrix"
-    //% x.min=0 x.max=4 y.min=0 y.max=4 shim=led::unplot
+    //% x.min=0 x.max=4 y.min=0 y.max=4
+    //% x.fieldOptions.precision=1 y.fieldOptions.precision=1 shim=led::unplot
     function unplot(x: int32, y: int32): void;
 
     /**
@@ -498,7 +502,8 @@ declare namespace led {
     //% help=led/point weight=76
     //% blockId=device_point block="point|x %x|y %y"
     //% parts="ledmatrix"
-    //% x.min=0 x.max=4 y.min=0 y.max=4 shim=led::point
+    //% x.min=0 x.max=4 y.min=0 y.max=4
+    //% x.fieldOptions.precision=1 y.fieldOptions.precision=1 shim=led::point
     function point(x: int32, y: int32): boolean;
 
     /**
