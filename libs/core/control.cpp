@@ -325,4 +325,12 @@ namespace control {
         unregisterFromDal(handler);
     }
 
+    /**
+    *
+    */
+    //%
+    void __log(String text) {
+        if (NULL == text) return;
+        pxt::sendSerial(text->data, text->length);
+    }
 }

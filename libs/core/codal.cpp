@@ -243,8 +243,9 @@ void debuglog(const char *format, ...)
     va_end(arg);
 }
 
-
-
+void sendSerial(const char *data, int len) {
+    logwriten(data, len);
+}
 
 } // namespace pxt
 

@@ -11,7 +11,8 @@ Fun games to build with your @boardname@.
   "name": "Rock Paper Scissors",
   "url":"/projects/rock-paper-scissors",
   "description": "Make the Rock-Paper-Scissors game on your micro:bit and challenge your friends.",
-  "imageUrl":"/static/mb/projects/a4-motion.png"
+  "imageUrl":"/static/mb/projects/a4-motion.png",
+  "cardType": "tutorial"
 }, {
   "name": "Coin Flipper",
   "url":"/projects/coin-flipper",
@@ -44,5 +45,10 @@ Fun games to build with your @boardname@.
   "description": "Karel likes to draw, help Karel make LED art!",
   "url": "/projects/karel",
   "imageUrl": "/static/mb/projects/karel.png"
+}, {
+  "name": "Crashy bird",
+  "description": "Help the flying bird move through the obstacles on the LED screen",
+  "url":"/projects/crashy-bird",
+  "imageUrl":"/static/mb/projects/crashy-bird.png"
 }]
 ```

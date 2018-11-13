@@ -23,6 +23,17 @@ Now that you have a plan for your program, in the form of pseudocode, let's star
 
 ![IDE tour](/static/courses/csintro/algorithms/ide-tour.png)
 
+The features highlighted here are:
+
+1. Go to the **Home Screen** to start a new project or open an existing project
+2. **Simulator** shows what your program will look like when running on a @boardname@
+3. **Hide** or **Show** the simulator pane
+4. Program in either **Blocks** or **JavaScript**
+5. Programming **Workspace** where you will build you program
+6. Blocks **Toolbox**
+7. **Download** your program to the @boardname@
+8. Name your project and **Save** it on your computer
+
 ## Event handlers
 When you start a new project, there will be two blue blocks, ‘on start’ and ‘forever’ already in the coding workspace. These two blocks are event handlers.
 
@@ -32,7 +43,7 @@ One fun unplugged activity you can do with kids to reinforce the idea of an acti
 
 Notes:
 
-* Tooltips - Hover over any block until a hand icon appears and a small text box will pop up telling you what that block does. You can try this now with the ‘on start’ and ‘forever’ blocks. Notice that it also shows you the equivalent code in JavaScript. 
+* Tooltips - Hover over any block until a hand icon appears and a small text box will pop up telling you what that block does. You can try this now with the ‘on start’ and ‘forever’ blocks.
 	
 >![Blocks tooltips](/static/courses/csintro/algorithms/blocks-tooltips.png)
 
@@ -50,7 +61,7 @@ Notes:
 
 Looking at our pseudocode, we want to make sure to start a program with a clear screen.
 
-* We can do this by going to the Basic menu -> More and choosing a ‘clear screen’ block.
+* We can do this by going to the **Basic** toolbox category and under **...more**, choose a ``||basic:clear screen||`` block.
 
 >![Clear screen block](/static/courses/csintro/algorithms/clear-screen-block.png)
 

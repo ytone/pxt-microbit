@@ -14,14 +14,31 @@ Open a browser window to [makecode.com](https://makecode.com), and select the mi
 
 ![micro:bit card icon](/static/courses/csintro/making/microbit-card-icon.png)
 
-From the top left corner of the screen, select the **Projects** Menu, and click on **Import File**.  Select the file that you saved on your computer in the previous step.
+Create this program by dragging out blocks from the ``||basic:Basic||`` Toolbox category. Put the ``||basic:show icon||`` and ``||basic:pause||`` blocks in the ``||basic:forever||`` loop. Type in `5000` for the time in each ``||basic:pause||``. Set one icon to a ``Happy`` face and the other to a ``Sad`` face. It shows a repeating series of faces:
 
-![Projects folder](/static/courses/csintro/making/projects-folder.png)
+
+```blocks
+basic.forever(() => {
+   basic.showIcon(IconNames.Happy)
+   basic.pause(5000)
+   basic.showIcon(IconNames.Sad)
+   basic.pause(5000)
+})
+```
+
+At the bottom of of the editor, name the project as "Happy Sad Face" and click on the disk icon to save the project.
+
+![Save file](/static/courses/csintro/making/happy-sad-file.jpg)
+
+Now, click on **Home** to go back to the home screen.
+
+At  the right of **My Projects** on the home screen, click on the **Import** button and then click on **Import File** in the import dialog. Select the file that you just saved to your computer in the previous step.
+
+![Import button](/static/courses/csintro/making/import-button.png)
 
 ![Import file](/static/courses/csintro/making/import-file.png)
 
-The program should look like the following in MakeCode. 
-It shows a repeating series of faces:
+The program should again look like the following in MakeCode:
 
 ```blocks
 basic.forever(() => {
@@ -39,6 +56,17 @@ basic.forever(() => {
 * **Workspace** - on the right side of the screen is the Programming Workspace where you will create your program.  Programs are constructed by snapping blocks together in this area.
 
 ![IDE tour](/static/courses/csintro/making/ide-tour.png)
+
+The features highlighted here are:
+
+1. Go to the **Home Screen** to start a new project or open an existing project
+2. **Simulator** shows what your program will look like when running on a @boardname@
+3. **Hide** or **Show** the simulator pane
+4. Program in either **Blocks** or **JavaScript**
+5. Programming **Workspace** where you will build you program
+6. Blocks **Toolbox**
+7. **Download** your program to the @boardname@
+8. Name your project and **Save** it on your computer
 
 The color of the blocks identifies their category. All of the blocks that make up the program above come from the **Basic** Toolbox category, which is light blue.
 

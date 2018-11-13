@@ -63,12 +63,13 @@
                 {
                     "type": "api",
                     "map": {
-                        "bluetooth\\s*\\.uartRead\\s*\\((.*?)\\)": "bluetooth.uartReadUntil($1)",
-                        "bluetooth\\s*\\.uartWrite\\s*\\((.*?)\\)": "bluetooth.uartWriteUntil($1)",
-                        "input\\s*\\.calibrate\\s*\\(": "input.calibrateCompass(",
-                        "radio\\s*\\.onDataPacketReceived\\(\\s*\\(\\{\\s*receivedNumber\\s*\\}\\)\\s*=>\\s*\\{": "radio.onReceivedNumber(function (receivedNumber) {",
-                        "radio\\s*\\.onDataPacketReceived\\(\\s*\\(\\{\\s*receivedString: name, receivedNumber: value\\s*\\}\\)\\s*=>\\s*\\{": "radio.onReceivedValue(function (name, value) {",
-                        "radio\\s*\\.onDataPacketReceived\\(\\s*\\(\\{\\s*receivedString\\s*\\}\\)\\s*=>\\s*\\{": "radio.onReceivedString(function (receivedString) {"
+                        "bluetooth\\s*\\.\\s*uartRead\\s*\\((.*?)\\)": "bluetooth.uartReadUntil($1)",
+                        "bluetooth\\s*\\.\\s*uartWrite\\s*\\((.*?)\\)": "bluetooth.uartWriteUntil($1)",
+                        "input\\s*\\.\\s*calibrate\\s*\\(": "input.calibrateCompass(",
+                        "radio\\s*\\.\\s*onDataPacketReceived\\(\\s*\\(\\{\\s*receivedNumber\\s*\\}\\)\\s*=>\\s*\\{": "radio.onReceivedNumber(function (receivedNumber) {",
+                        "radio\\s*\\.\\s*onDataPacketReceived\\(\\s*\\(\\{\\s*receivedString: name, receivedNumber: value\\s*\\}\\)\\s*=>\\s*\\{": "radio.onReceivedValue(function (name, value) {",
+                        "radio\\s*\\.\\s*onDataPacketReceived\\(\\s*\\(\\{\\s*receivedString\\s*\\}\\)\\s*=>\\s*\\{": "radio.onReceivedString(function (receivedString) {",
+                        "Math\\s*\\.\\s*random\\s*\\(": "Math.randomRange(0, "
                     }
                 },
                 {
@@ -240,7 +241,6 @@
         "productId": "0x0204",
         "rawHID": true
     },
-    "ignoreDocsErrors": true,
     "appTheme": {
         "accentColor": "#5C005C",
         "logoUrl": "https://microbit.org/code/",
@@ -263,12 +263,13 @@
         "githubUrl": "https://github.com/Microsoft/pxt-microbit",
         "boardName": "micro:bit",
         "driveDisplayName": "MICROBIT",
-        "feedbackUrl": "https://www.research.net/r/MCmicro",
         "appStoreID": "1092687276",
         "mobileSafariDownloadProtocol": "microbithex://?data",
+        "crowdinProject": "kindscript",
         "extendEditor": true,
         "extendFieldEditors": true,
         "enableTrace": true,
+        "ignoreDocsErrors": true,
         "experiments": [
             "greenScreen",
             "print",

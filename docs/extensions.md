@@ -39,6 +39,23 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
   "name": "Gigglebot",
   "url":"/pkg/dexterind/pxt-giggle",
   "cardType": "package"
+}, {
+  "name": "Robobit",
+  "url":"/pkg/4tronix/Robobit",
+  "cardType": "package"
+}, {
+  "name": "Pi Supply Bit Buggy",
+  "url":"/pkg/PiSupply/pxt-bitbuggy",
+  "cardType": "package"
+}, {
+  "name": "ALS Robot Coo Coo",
+  "url":"/pkg/alsrobot-microbit-makecode-packages/CooCoo",
+  "cardType": "package"
+}, {
+  "name": "ALS Robot CruiseBit",
+  "url":"/pkg/alsrobot-microbit-makecode-packages/CruiseBit",
+  "cardType": "package"
+
 }]
 ```
 
@@ -133,6 +150,27 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
     "name": "Imagimaker Magisheild",
     "url":"/pkg/Imagimaker/pxt-imagimaker",
     "cardType": "package"
+}, {
+    "name": "gator:light Light sensor",
+    "url":"/pkg/sparkfun/pxt-gator-light",
+    "cardType": "package"
+}, {
+    "name": "gator:temp Temperature Sensor",
+    "url":"/pkg/sparkfun/pxt-gator-temp",
+    "cardType": "package"
+}, {
+    "name": "ALS Robot Electromagnet",
+    "url":"/pkg/alsrobot-microbit-makecode-packages/ALSRobotElectromagnet",
+    "cardType": "package"
+}]
+```
+
+## IoT
+```codecard
+[{
+  "name": "Pi Supply Lora Node",
+  "url":"/pkg/PiSupply/pxt-iot-lora-node",
+  "cardType": "package"
 }]
 ```
 
@@ -191,6 +229,14 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
 }, {
   "name": "Annikken Andee",
   "url":"/pkg/Annikken/pxt-Andee",
+  "cardType": "package"
+}, {
+  "name": "ALS Robot Keyboard",
+  "url":"/pkg/alsrobot-microbit-makecode-packages/ALSRobotKeyboard",
+  "cardType": "package"
+}, {
+  "name": "ALS Robot Keyboard",
+  "url":"/pkg/alsrobot-microbit-makecode-packages/ALSRobotJoyBit",
   "cardType": "package"
 }]
 ```

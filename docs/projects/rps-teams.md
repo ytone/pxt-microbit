@@ -7,26 +7,26 @@ Massively multi-player rock paper scissors!
 ## ~
 
 https://youtu.be/8ztOmdZi5Pw
-
-Playing rock paper scissors is usually a two player game... but it works with many more players too!
+<br/>
+Playing rock paper scissors is usually a two player game... but it will work with many more players too!
 When playing with more than two players, it becomes a team game: all players shake at the same time, 
-then the number of **rock**, **paper**, **scissors** is tallied between all the players. 
-The team with the most players wins the game.
+then the amount of **rocks**, **paper**, and **scissors** is tallied between all the players. 
+Teams are formed automatcally based on which tool is chosen by shaking the @boardname@. The team with the most players after the shake wins the game.
 
 Starting with the [basic version of the RPS game](/projects/rock-paper-scissors), we are going
-to change the code so that the @boardname@ counts and displays the number of players on the same team.
+to change the code so that the @boardname@ counts and displays the number of players on a team.
 The @boardname@ will use **radio** communication to send its status and receive the status of the other boards.
 
 Let's get started!
 
 ## Starting blocks
 
-Let's start out with the code from the original game. The basic version picks one of the tools in a ``||input:on shake||`` event and displays an icon accordingly. Take a peek at the code below to refresh your memory.
+Let's start out with the code from the original game. The basic version picks one of the tools in an ``||input:on shake||`` event and displays a matching icon. Take a peek at the code below to refresh your memory.
 
 ```blocks
 let tool = 0
-input.onGesture(Gesture.Shake, () => {
-    tool = Math.randomRange(0, 3)
+input.onGesture(Gesture.Shake, function() {
+    tool = Math.randomRange(0, 2)
     if (tool == 0) {
         basic.showIcon(IconNames.SmallSquare)
     } else if (tool == 1) {
@@ -43,11 +43,11 @@ input.onGesture(Gesture.Shake, () => {
 
 ```blocks
 let tool = 0
-input.onGesture(Gesture.Shake, () => {
-    tool = Math.randomRange(0, 3)
+input.onGesture(Gesture.Shake, function() {
+    tool = Math.randomRange(0, 2)
 })
 
-basic.forever(() => {
+basic.forever(function() {
     if (tool == 0) {
         basic.showIcon(IconNames.SmallSquare)
     } else if (tool == 1) {
@@ -66,11 +66,11 @@ We also set the radio group and send the device serial number (a number that uni
 
 ```blocks
 let tool = 0
-input.onGesture(Gesture.Shake, () => {
-    tool = Math.randomRange(0, 3)
+input.onGesture(Gesture.Shake, function() {
+    tool = Math.randomRange(0, 2)
 })
 
-basic.forever(() => {
+basic.forever(function() {
     radio.sendNumber(tool)
     if (tool == 0) {
         basic.showIcon(IconNames.SmallSquare)
@@ -97,7 +97,7 @@ let players: number[] = [0]
 
 ## Step 4: Receiving a message (part 1)
 
-In an ``||radio:on radio received||`` event, we receive the status from another @boardname@. Click on the **gearwheel** to add the ``serial`` parameter as we will need it to identify who sent that packet.
+In an ``||radio:on received number||`` event, we receive the status from another @boardname@. Click on the **gearwheel** to add the ``serial`` parameter as we will need it to identify who sent that packet.
 
 We compute three values from the data received:
 
@@ -111,7 +111,9 @@ let player_index = 0
 let players: number[] = [0]
 let tool = 0
 let found = false
-radio.onDataPacketReceived(({ receivedNumber, serial: serialNumber }) => {
+let serialNumber = 0;
+radio.onReceivedNumber(function (receivedNumber) {
+    serialNumber = radio.receivedPacket(RadioPacketProperty.SerialNumber)
     match = tool == receivedNumber
     player_index = players.indexOf(serialNumber)
     found = player_index >= 0
@@ -134,7 +136,9 @@ let players: number[] = [0]
 let tool = 0
 let found = false
 let temp = 0
-radio.onDataPacketReceived(({ receivedNumber, serial: serialNumber }) => {
+let serialNumber = 0;
+radio.onReceivedNumber(function (receivedNumber) {
+    serialNumber = radio.receivedPacket(RadioPacketProperty.SerialNumber)
     match = tool == receivedNumber
     player_index = players.indexOf(serialNumber)
     found = player_index >= 0
@@ -152,9 +156,9 @@ radio.onDataPacketReceived(({ receivedNumber, serial: serialNumber }) => {
 What if some of the other players leave the game? They would stop broadcasting their status but would still stay in our list of players. To avoid this problem, we reset the ``players`` array each time we shake:
 
 ```block
-input.onGesture(Gesture.Shake, () => {
+input.onGesture(Gesture.Shake, function() {
     let players: number[] = [0]
-    let tool = Math.randomRange(0, 3)
+    let tool = Math.randomRange(0, 2)
 })
 ```
 
@@ -165,7 +169,7 @@ The team score is the number of players in that team... which is really just the
 ```block
 let players: number[] = [0]
 let tool = 0
-basic.forever(() => {
+basic.forever(function() {
     basic.showNumber(players.length)
 })
 ```
@@ -183,11 +187,9 @@ let player_index = 0
 let tool = 0
 let match = false
 let players: number[] = []
-input.onGesture(Gesture.Shake, () => {
-    players = [0]
-    tool = Math.randomRange(0, 3)
-})
-radio.onDataPacketReceived( ({ receivedNumber, serial: serialNumber }) =>  {
+let serialNumber = 0;
+radio.onReceivedNumber(function (receivedNumber) {
+    serialNumber = radio.receivedPacket(RadioPacketProperty.SerialNumber)
     match = tool == receivedNumber
     player_index = players.indexOf(serialNumber)
     found = player_index >= 0
@@ -198,7 +200,11 @@ radio.onDataPacketReceived( ({ receivedNumber, serial: serialNumber }) =>  {
         temp = players.removeAt(player_index)
     }
 })
-basic.forever(() => {
+input.onGesture(Gesture.Shake, function() {
+    players = [0]
+    tool = Math.randomRange(0, 2)
+})
+basic.forever(function() {
     radio.sendNumber(tool)
     if (tool == 0) {
         basic.showIcon(IconNames.SmallSquare)

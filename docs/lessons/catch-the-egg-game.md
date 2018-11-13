@@ -9,15 +9,17 @@ Variables
 ## Quick Links
 
 * [activity](/lessons/catch-the-egg-game/activity)
-* [tutorial](/lessons/catch-the-egg-game/tutorial)
+* [challenge](/lessons/catch-the-egg-game/challenge)
 * [quiz](/lessons/catch-the-egg-game/quiz)
 * [quiz answers](/lessons/catch-the-egg-game/quiz-answers)
 
 ## Prior learning/place of lesson in scheme of work
 
-Learn how to create a catch the egg game game with **plot**, `led->plot` , **unplot**, `led->unplot`, and **acceleration**  `input -> acceleration` to turn on and off LED lights on the LED screen. We will be learning how to create a catch the egg game app using global variables, forever loop, local variable, input acceleration, math min, math max, math random, math mod, if (conditionals), game library as well as simple commands, such as led plot, led unplot, and pause.
+Learn how to create a catch the egg game game with ``||led:plot||`` , ``||led:unplot||``, and  ``||input:acceleration||`` to turn on and off LED lights on the screen.
 
 ## Documentation
+
+The blocks used in this lesson:
 
 ```cards
 let x = 2;
@@ -29,7 +31,7 @@ basic.pause(300);
 input.acceleration(Dimension.X);
 Math.min(0,0);
 Math.max(0,1);
-Math.randomRange(0, 5);
+Math.randomRange(0, 4);
 game.addScore(1);
 game.score();
 game.removeLife(1);

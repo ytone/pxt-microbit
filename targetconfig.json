@@ -5,7 +5,8 @@
             "microbit-foundation",
             "KitronikLtd",
             "tinkertanker",
-            "Seeed-Studio"
+            "Seeed-Studio",
+            "PiSupply"
         ],
         "approvedRepos": [
             "CoderDojoOlney/pxt-olney",
@@ -34,7 +35,15 @@
             "k8robotics/pxt-k8",
             "dexterind/pxt-giggle",
             "dexterind/pxt-gigglebot",
-            "Imagimaker/pxt-imagimaker"
+            "Imagimaker/pxt-imagimaker",
+            "sparkfun/pxt-gator-light",
+            "sparkfun/pxt-gator-temp",
+            "4tronix/Robobit",
+            "alsrobot-microbit-makecode-packages/ALSRobotJoyBit",
+            "alsrobot-microbit-makecode-packages/ALSRobotKeyboard",
+            "alsrobot-microbit-makecode-packages/ALSRobotElectromagnet",
+            "alsrobot-microbit-makecode-packages/CooCoo",
+            "alsrobot-microbit-makecode-packages/CruiseBit"
         ],
         "preferredRepos": [
             "Microsoft/pxt-neopixel",
@@ -80,5 +89,8 @@
         "Turtle": "projects/turtle",
         "Blocks To JavaScript": "courses/blocks-to-javascript",
         "Courses": "courses"
+    },
+    "electronManifest": {
+        "latest": "v1.2.7"
     }
 }

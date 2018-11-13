@@ -449,6 +449,11 @@ declare namespace control {
     /** Remove a handler from the background for all events */
     //% shim=control::removeFromBackground
     function removeFromBackground(handler: () => void): void;
+    /**
+     *
+     */
+    //% shim=control::__log
+    function __log(text: string): void;
 }
 
 
@@ -737,7 +742,7 @@ declare namespace pins {
      * Write bytes to a 7-bit I2C `address`.
      */
     //% repeat.defl=0 shim=pins::i2cWriteBuffer
-    function i2cWriteBuffer(address: int32, buf: Buffer, repeat?: boolean): void;
+    function i2cWriteBuffer(address: int32, buf: Buffer, repeat?: boolean): int32;
 
     /**
      * Write to the SPI slave and return the response
