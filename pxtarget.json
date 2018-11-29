@@ -218,7 +218,7 @@
         "yottaTarget": "bbc-microbit-classic-gcc",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "lancaster-university/microbit",
-        "gittag": "v2.1.0",
+        "gittag": "v2.1.1",
         "serviceId": "microbit",
         "dockerImage": "pext/yotta:latest"
     },
@@ -271,8 +271,6 @@
         "enableTrace": true,
         "ignoreDocsErrors": true,
         "experiments": [
-            "greenScreen",
-            "print",
             "allowPackageExtensions",
             "instructions",
             "debugger",
@@ -395,7 +393,8 @@
             "arrays": "#E65722"
         },
         "highContrast": true,
-        "greenScreen": false,
+        "greenScreen": true,
+        "print": true,
         "selectLanguage": true,
         "availableLocales": [
             "en",
