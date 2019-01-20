@@ -235,8 +235,13 @@ static void *threadAddressFor(Fiber *fib, void *sp) {
 }
 
 void gcProcessStacks(int flags) {
-    if (!currentFiber)
-        return; // scheduler not yet initialized
+    // check scheduler is initialized
+    if (!currentFiber) {
+        // make sure we allocate something to at least initalize the memory allocator
+        void * volatile p = xmalloc(1);
+        xfree(p);
+        return;
+    }
 
     int numFibers = list_fibers(NULL);
     Fiber **fibers = (Fiber **)xmalloc(sizeof(Fiber *) * numFibers);
