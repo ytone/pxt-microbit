@@ -14,7 +14,7 @@ void debuglog(const char *format, ...);
 #define xmalloc malloc
 #define xfree free
 
-#define GC_BLOCK_SIZE (2 * 1024)
+#define GC_BLOCK_SIZE 1000
 
 #define DMESG NOLOG
 
