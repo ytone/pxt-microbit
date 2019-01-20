@@ -18,6 +18,7 @@
         "pxt-helpers.ts",
         "helpers.ts",
         "pinscompat.ts",
+        "configkeys.h",
         "codal.cpp",
         "images.cpp",
         "basic.cpp",

@@ -36,6 +36,8 @@
         "flashCodeAlign": 1024,
         "floatingPoint": true,
         "taggedInts": true,
+        "utf8": false,
+        "gc": true,
         "patches": {
             "0.0.0 - 1.0.0": [
                 {
