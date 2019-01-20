@@ -30,7 +30,7 @@ static inline String PSTR(ManagedString s) {
 typedef uint32_t ImageLiteral_;
 
 static inline ImageData *imageBytes(ImageLiteral_ lit) {
-    return (ImageData *)ptrOfLiteral(lit);
+    return (ImageData *)lit;
 }
 
 typedef RefMImage *Image;
