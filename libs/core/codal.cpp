@@ -219,6 +219,8 @@ void sendSerial(const char *data, int len) {
 
 #ifdef PXT_GC
 ThreadContext *getThreadContext() {
+    if (!currentFiber)
+        return NULL;
     return (ThreadContext *)currentFiber->user_data;
 }
 
@@ -233,6 +235,9 @@ static void *threadAddressFor(Fiber *fib, void *sp) {
 }
 
 void gcProcessStacks(int flags) {
+    if (!currentFiber)
+        return; // scheduler not yet initialized
+
     int numFibers = list_fibers(NULL);
     Fiber **fibers = (Fiber **)xmalloc(sizeof(Fiber *) * numFibers);
     int num2 = list_fibers(fibers);
