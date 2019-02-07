@@ -38,6 +38,7 @@
         "taggedInts": true,
         "utf8": false,
         "gc": true,
+        "imageRefTag": 9,
         "patches": {
             "0.0.0 - 1.0.0": [
                 {
