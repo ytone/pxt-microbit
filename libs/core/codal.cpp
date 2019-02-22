@@ -74,7 +74,7 @@ void setBackgroundHandlerFlag() {
     backgroundHandlerFlag = true;
 }
 
-void registerWithDal(int id, int event, Action a) {
+void registerWithDal(int id, int event, Action a, int flags) {
     if (!backgroundHandlerFlag) {
         uBit.messageBus.ignore(id, event, dispatchForeground);
     }
