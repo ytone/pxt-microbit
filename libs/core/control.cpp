@@ -322,7 +322,7 @@ namespace control {
     /** Remove a handler from the background for all events */
     //% 
     void removeFromBackground(Action handler) {
-        unregisterFromDal(handler);
+        unregisterFromDal((void *)handler);
     }
 
     /**

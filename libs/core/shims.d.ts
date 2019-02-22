@@ -449,6 +449,7 @@ declare namespace control {
     /** Remove a handler from the background for all events */
     //% shim=control::removeFromBackground
     function removeFromBackground(handler: () => void): void;
+
     /**
      *
      */

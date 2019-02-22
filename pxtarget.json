@@ -221,7 +221,7 @@
         "yottaTarget": "bbc-microbit-classic-gcc",
         "yottaCorePackage": "microbit",
         "githubCorePackage": "lancaster-university/microbit",
-        "gittag": "pxtgc-0",
+        "gittag": "pxtgcevents",
         "serviceId": "microbit",
         "dockerImage": "pext/yotta:latest"
     },

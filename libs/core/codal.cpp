@@ -83,8 +83,8 @@ void registerWithDal(int id, int event, Action a) {
     incr((Action)a);
 }
 
-void unregisterFromDal(Action a) { 
-    uBit.messageBus.ignore(MICROBIT_EVT_ANY, MICROBIT_EVT_ANY, dispatchBackground, (void*) a);
+void unregisterFromDal(void* a) { 
+    uBit.messageBus.ignore(MICROBIT_EVT_ANY, MICROBIT_EVT_ANY, dispatchBackground, a);
 }
 
 void fiberDone(void *a) {
