@@ -250,12 +250,12 @@ namespace game {
     }
 
     /**
-     * Gets a value indicating if the game is still running. Returns `false` if game over.
+     * Indicates if the game is still running. Returns `false` if the game is over or paused.
      */
-    //% weight=10
+    //% weight=5 help=game/is-running
+    //% blockId=game_isrunning block="is running" blockGap=8
     export function isRunning(): boolean {
-        let running: boolean;
-        return !_isGameOver;
+        return !_isGameOver && !_paused && !!_img;
     }
 
     /**
@@ -270,8 +270,10 @@ namespace game {
     }
 
     /**
-     * Indicates if the game is display the game over sequence.
+     * Indicates if the game is over and displaying the game over sequence.
      */
+    //% weight=7 help=game/is-game-over
+    //% blockId=game_isgameover block="is game over" blockGap=8
     export function isGameOver(): boolean {
         return _isGameOver;
     }
@@ -279,7 +281,8 @@ namespace game {
     /**
      * Indicates if the game rendering is paused to allow other animations
      */
-    //%
+    //% weight=6 help=game/is-paused
+    //% blockId=game_ispaused block="is paused" blockGap=8
     export function isPaused(): boolean {
         return _paused;
     }
@@ -615,7 +618,7 @@ namespace game {
          * @param other TODO
          */
         //% weight=20 help=game/is-touching
-        //% blockId=game_sprite_touching_sprite block="%sprite|touching %other|?" blockGap=8
+        //% blockId=game_sprite_touching_sprite block="is %sprite|touching %other" blockGap=8
         public isTouching(other: LedSprite): boolean {
             return this._enabled && other._enabled && this._x == other._x && this._y == other._y;
         }
@@ -625,7 +628,7 @@ namespace game {
          * @param this TODO
          */
         //% weight=19 help=game/is-touching-edge
-        //% blockId=game_sprite_touching_edge block="%sprite|touching edge?" blockGap=8
+        //% blockId=game_sprite_touching_edge block="is %sprite|touching edge" blockGap=8
         public isTouchingEdge(): boolean {
             return this._x == 0 || this._x == 4 || this._y == 0 || this._y == 4;
         }

@@ -8,7 +8,7 @@ Use the accelerometer and the screen to build a **Rock Paper Scissors** game tha
 
 ## Step 1 @fullscreen
 
-Add a ``||input:on shake||`` block to run code when when you shake the @boardname@.
+Add a ``||input:on shake||`` block to run code when you shake the @boardname@.
 
 ```blocks
 input.onGesture(Gesture.Shake, () => {
@@ -31,7 +31,6 @@ let hand = 0;
 input.onGesture(Gesture.Shake, () => {
     hand = Math.randomRange(1, 3)
 })
-
 ```
 
 In a later step, each of the possible numbers (`1`, `2`, or `3`) is matched to its own picture. The picture is shown on the LEDs when its matching number is picked.
@@ -42,6 +41,22 @@ Place an ``||logic:if||`` block under the ``||math:pick random||`` and check whe
 
 ![How to drag an if statement](/static/mb/projects/rock-paper-scissors/if.gif)
 
+```blocks
+let hand = 0;
+input.onGesture(Gesture.Shake, () => {
+    hand = Math.randomRange(1, 3)
+    if (hand == 1) {
+        basic.showLeds(`
+            # # # # #
+            # . . . #
+            # . . . #
+            # . . . #
+            # # # # #
+            `)
+    }
+})
+```
+
 ## Step 5 @fullscreen
 
 Click on the **SHAKE** button in the simulator. If you try enough times, you should see a picture of paper on the screen.
@@ -50,9 +65,27 @@ Click on the **SHAKE** button in the simulator. If you try enough times, you sho
 
 ## Step 6 @fullscreen
 
-Click the ``+`` button to add an ``||logic:else||`` section.
+Click the **(+)** button to add an ``||logic:else||`` section.
 
 ![Adding an else clause](/static/mb/projects/rock-paper-scissors/ifelse.gif)
+
+```blocks
+let hand = 0;
+input.onGesture(Gesture.Shake, () => {
+    hand = Math.randomRange(1, 3)
+    if (hand == 1) {
+        basic.showLeds(`
+            # # # # #
+            # . . . #
+            # . . . #
+            # . . . #
+            # # # # #
+            `)
+    } else {
+ 
+    }
+})
+```
 
 ## Step 7 @fullscreen
 
@@ -84,7 +117,7 @@ input.onGesture(Gesture.Shake, () => {
 
 ## Step 8 @fullscreen
 
-Click the ``+`` button again to add an ``||logic:else if||`` section. Now, add a conditional block for ``||logic:hand = 1||`` to the condition in ``||logic:else if||``. Since ``hand`` can only be `1`, `2`, or `3`, your code is covering all possible cases!
+Click the ``+`` button again to add an ``||logic:else if||`` section. Now, add a conditional block for ``||logic:hand = 2||`` to the condition in ``||logic:else if||``. Since ``hand`` can only be `1`, `2`, or `3`, your code is covering all possible cases!
 
 ![Adding an else if clause](/static/mb/projects/rock-paper-scissors/ifelseif.gif)
 

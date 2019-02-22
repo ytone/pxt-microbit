@@ -8,6 +8,26 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
 
 ```codecard
 [{
+  "name": "Kitronik :MOVE mini",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-servo-lite",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Integrated Robotics Board",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-robotics-board",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Motor Driver Board",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-motor-driver",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik 16 Servo Board",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-i2c-16-servo",
+  "cardType": "package"
+},
+{
   "name": "4tronix BitBot",
   "url":"/pkg/4tronix/BitBot",
   "cardType": "package"
@@ -18,6 +38,10 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
 }, {
   "name": "Sunfounder Sloth",
   "url":"/pkg/sunfounder/pxt-sloth",
+  "cardType": "package"
+}, {
+  "name": "ReroKit rero:micro",
+  "url":"/pkg/ReRoKit/pxt-reromicro",
   "cardType": "package"
 }, {
   "name": "UCL Junk Robot",
@@ -55,7 +79,14 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
   "name": "ALS Robot CruiseBit",
   "url":"/pkg/alsrobot-microbit-makecode-packages/CruiseBit",
   "cardType": "package"
-
+}, {
+  "name": "Hummingbird Bit",
+  "url":"/pkg/BirdBrainTechnologies/pxt-hummingbird-bit",
+  "cardType": "package"
+}, {
+  "name": "Inex iKB-1 controller board",
+  "url":"/pkg/jcubuntu/pxt-iKB1",
+  "cardType": "package"
 }]
 ```
 
@@ -63,8 +94,33 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
 
 ```codecard
 [{
+  "name": "Kitronik :GAME ZIP64",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-zip-64",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik :GAME Controller",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-game-controller",
+  "cardType": "package"
+},
+{
   "name": "Sparkfun Gamer:bit",
   "url":"/pkg/sparkfun/pxt-gamer-bit",
+  "cardType": "package"
+},
+{
+  "name": "4tronix BitCommander",
+  "url":"/pkg/4tronix/BitCommander",
+  "cardType": "package"
+},
+{
+  "name": "51bit SFC/NES controller",
+  "url":"/pkg/51bit/SFC",
+  "cardType": "package"
+},
+{
+  "name": "Pimoroni touch:bit",
+  "url":"/pkg/pimoroni/pxt-touchbit",
   "cardType": "package"
 }]
 ```
@@ -73,6 +129,36 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
 
 ```codecard
 [{
+  "name": "Kitronik Realtime Clock",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-rtc",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Klimate Board",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-klimate",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Klef Piano",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-klef-piano",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Stop:Bit",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-stopbit",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Lamp:Bit",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-lampbit",
+  "cardType": "package"
+},
+{
+  "name": "Kitronik Access:Bit",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-accessbit",
+  "cardType": "package"
+},
+{
   "name": "micro:turtle",
   "url":"/pkg/microsoft/pxt-microturtle",
   "cardType": "package"
@@ -103,6 +189,10 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
 }, {
     "name": "Pimoroni Envirobit",
     "url": "/pkg/pimoroni/pxt-envirobit",
+    "cardType": "package"
+}, {
+    "name": "51bit Smart Tools",
+    "url": "/pkg/51bit/SmartTools",
     "cardType": "package"
 }, {
     "name": "MakerBit",
@@ -177,12 +267,8 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
 ## Other
 
 ```codecard
-[
-  {
-  "name": "File System",
-  "url":"/pkg/microsoft/pxt-filesystem",
-  "cardType": "package"
-}, {
+[ 
+ {
   "name": "Code Dojo Olney",
   "url":"/pkg/CoderDojoOlney/pxt-olney",
   "cardType": "package"
@@ -207,10 +293,14 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
   "url":"/pkg/mbitfun/pxt-katakana",
   "cardType": "package"
 }, {
-  "name": "Muselab WiFi IoT Sheild",
+  "name": "Muselab WiFi IoT Shield",
   "url":"/pkg/MUSELAB/pxt-wifi-shield",
   "cardType": "package"
-},  {
+}, {
+  "name": "4tronix Cube:Bit",
+  "url":"/pkg/4tronix/cubebit",
+  "cardType": "package"
+}, {
   "name": "LINE BLE beacon",
   "url":"/pkg/pizayanz/pxt-linebeacon",
   "cardType": "package"
@@ -231,12 +321,28 @@ Check out [microbit.org](http://microbit.org/resellers/) for more information on
   "url":"/pkg/Annikken/pxt-Andee",
   "cardType": "package"
 }, {
+  "name": "Proportional Font",
+  "url":"/pkg/lwchkg/pxt-proportional-font",
+  "cardType": "package"
+}, {
   "name": "ALS Robot Keyboard",
   "url":"/pkg/alsrobot-microbit-makecode-packages/ALSRobotKeyboard",
   "cardType": "package"
 }, {
-  "name": "ALS Robot Keyboard",
+  "name": "ALS Robot JoyBit",
   "url":"/pkg/alsrobot-microbit-makecode-packages/ALSRobotJoyBit",
+  "cardType": "package"
+}, {
+  "name": "51bit ColorBit",
+  "url":"/pkg/51bit/ColorBit",
+  "cardType": "package"
+}, {
+  "name": "Kitronik Zip Tile",
+  "url":"/pkg/KitronikLtd/pxt-kitronik-zip-tile",
+  "cardType": "package"
+}, {
+  "name": "MAX7219 8x8",
+  "url":"/pkg/alankrantas/pxt-MAX7219_8x8",
   "cardType": "package"
 }]
 ```

@@ -46,7 +46,7 @@ let obstacles: game.LedSprite[] = []
 Now generate vertical obstacles consisting of 4 sprites and 1 random hole. 
 Create new variable called `emptyObstacleY`. Using ``||math:pick random||``, generate a random number from `0` to `4` and store it inside `emptyObstacleY`. 
 
-Using ``||loops:for||`` loop, iterate from `0` to `4`. For every coordinate not equal to `emptyObstacleY` create and add obstacle sprites to the endo fo the `obstacles` array.
+Using ``||loops:for||`` loop, iterate from `0` to `4`. For every coordinate not equal to `emptyObstacleY` create and add obstacle sprites to the end of the `obstacles` array.
 
 ```blocks
 let emptyObstacleY = 0
@@ -90,7 +90,9 @@ input.onButtonPressed(Button.B, () => {
 
 ## Step 4: Make obstacles move
 
-Access each obstacle using a loop (_iterate_ over the `obstacles` array) and decrease the `obstacle` `X` coordinate by 1.
+Access each obstacle using a ``||for element||`` loop (_iterate_ over the `obstacles` array) and decrease the `obstacle` `X` coordinate by 1. 
+Right click on the ``||value||`` block and rename it to ``||obstacle||``
+; then drag that ``||obstacle||`` block on top of ``||sprite||`` in the ``||game:change x||`` block.
 
 ```blocks
 let obstacles: game.LedSprite[] = []
