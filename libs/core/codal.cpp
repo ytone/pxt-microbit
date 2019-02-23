@@ -49,8 +49,10 @@ void dispatchForeground(MicroBitEvent e, void* action) {
 
 void deleteListener(MicroBitListener *l) {
     if (l->cb_param == (void (*)(MicroBitEvent, void*))dispatchBackground || 
-        l->cb_param == (void (*)(MicroBitEvent, void*))dispatchForeground)
-        decr((Action)(l->cb_arg));
+        l->cb_param == (void (*)(MicroBitEvent, void*))dispatchForeground) 
+        decr((Action)(l->cb_arg));    
+        unregisterGCPtr((Action)(l->cb_arg));
+    }
 }
 
 static void initCodal() {
@@ -80,7 +82,8 @@ void registerWithDal(int id, int event, Action a, int flags) {
     }
     uBit.messageBus.listen(id, event, backgroundHandlerFlag ? dispatchBackground : dispatchForeground, a);
     backgroundHandlerFlag = false;
-    incr((Action)a);
+    incr(a);
+    registerGCPtr(a);
 }
 
 void unregisterFromDal(void* a) { 
