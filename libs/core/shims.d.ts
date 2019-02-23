@@ -443,11 +443,13 @@ declare namespace control {
 
     /** The next handler to be added will be put in the background, 
     which supports multiple handlers per event type. */
-    //% shim=control::nextHandlerToBackground
+    //%
+    //% help=control/next-handler-to-background shim=control::nextHandlerToBackground
     function nextHandlerToBackground(): void;
 
     /** Remove a handler from the background for all events */
-    //% shim=control::removeFromBackground
+    //%
+    //% help=control/remove-from-background shim=control::removeFromBackground
     function removeFromBackground(handler: () => void): void;
 
     /**
