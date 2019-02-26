@@ -18,7 +18,6 @@
     "yotta": {
         "config": {
             "microbit-dal": {
-                "message_bus_concurrency_mode": 1,
                 "bluetooth": {
                     "enabled": 1
                 }
