@@ -166,42 +166,46 @@ namespace radio {
     void receivePacket(bool writeToSerial) {
         PacketBuffer p = uBit.radio.datagram.recv();
 
-        uint8_t* buf = p.getBytes();
-        uint8_t tp;
-        int t;
-        int s;
+        uint8_t tp = 0;
+        int t = 0;
+        int s = 0;
         int iv = 0;
         double dv = 0;
         String m = NULL;
         Buffer b = NULL;
 
-        memcpy(&tp, buf, 1);
-        memcpy(&t, buf + 1, 4);
-        memcpy(&s, buf + 5, 4);
+        // missing or empty packet has 1 byte
+        // need at least 9 bytes to read header of packet
+        if (p && p->length() >= 9) {
+            uint8_t* buf = p.getBytes();
+            memcpy(&tp, buf, 1);
+            memcpy(&t, buf + 1, 4);
+            memcpy(&s, buf + 5, 4);
 
-        switch(tp) {
-            case PACKET_TYPE_STRING:
-                m = getStringValue(buf + PACKET_PREFIX_LENGTH, MAX_PAYLOAD_LENGTH - 1);
-                break;
-            case PACKET_TYPE_BUFFER:
-                b = getBufferValue(buf + PACKET_PREFIX_LENGTH, MAX_PAYLOAD_LENGTH - 1);
-                break;
-            case PACKET_TYPE_DOUBLE:
-            case PACKET_TYPE_DOUBLE_VALUE:
-                memcpy(&dv, buf + PACKET_PREFIX_LENGTH, sizeof(double));
-                if (tp == PACKET_TYPE_DOUBLE_VALUE) {
-                    m = getStringValue(buf + DOUBLE_VALUE_PACKET_NAME_LEN_OFFSET, MAX_FIELD_DOUBLE_NAME_LENGTH);
-                }
-                break;
-            case PACKET_TYPE_NUMBER:
-            case PACKET_TYPE_VALUE:
-                memcpy(&iv, buf + PACKET_PREFIX_LENGTH, sizeof(int));
-                if (tp == PACKET_TYPE_VALUE) {
-                    m = getStringValue(buf + VALUE_PACKET_NAME_LEN_OFFSET, MAX_FIELD_NAME_LENGTH);
-                }
-                break;
-            default: // unknown packet
-                return;
+            switch(tp) {
+                case PACKET_TYPE_STRING:
+                    m = getStringValue(buf + PACKET_PREFIX_LENGTH, MAX_PAYLOAD_LENGTH - 1);
+                    break;
+                case PACKET_TYPE_BUFFER:
+                    b = getBufferValue(buf + PACKET_PREFIX_LENGTH, MAX_PAYLOAD_LENGTH - 1);
+                    break;
+                case PACKET_TYPE_DOUBLE:
+                case PACKET_TYPE_DOUBLE_VALUE:
+                    memcpy(&dv, buf + PACKET_PREFIX_LENGTH, sizeof(double));
+                    if (tp == PACKET_TYPE_DOUBLE_VALUE) {
+                        m = getStringValue(buf + DOUBLE_VALUE_PACKET_NAME_LEN_OFFSET, MAX_FIELD_DOUBLE_NAME_LENGTH);
+                    }
+                    break;
+                case PACKET_TYPE_NUMBER:
+                case PACKET_TYPE_VALUE:
+                    memcpy(&iv, buf + PACKET_PREFIX_LENGTH, sizeof(int));
+                    if (tp == PACKET_TYPE_VALUE) {
+                        m = getStringValue(buf + VALUE_PACKET_NAME_LEN_OFFSET, MAX_FIELD_NAME_LENGTH);
+                    }
+                    break;
+                default: // unknown packet
+                    return;
+            }
         }
 
         if (NULL == m)
