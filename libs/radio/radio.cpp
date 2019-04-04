@@ -179,7 +179,7 @@ namespace radio {
 
         // missing or empty packet has 1 byte
         // need at least 9 bytes to read header of packet
-        if (p && p.length() >= 9) {
+        if (p && p.length() >= PACKET_PREFIX_LENGTH) {
             uint8_t* buf = p.getBytes();
             memcpy(&tp, buf, 1);
             memcpy(&t, buf + 1, 4);
