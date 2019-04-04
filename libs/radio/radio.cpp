@@ -35,6 +35,9 @@ using namespace pxt;
 // payload: number (9 ... 16), name length (17), name (18 ... 26)
 #define PACKET_TYPE_DOUBLE_VALUE 5
 
+// unknown packet type
+#define PACKET_TYPE_UNKNOWN 0xff
+
 //% color=#E3008C weight=96 icon="\uf012"
 namespace radio {
 
@@ -166,7 +169,7 @@ namespace radio {
     void receivePacket(bool writeToSerial) {
         PacketBuffer p = uBit.radio.datagram.recv();
 
-        uint8_t tp = 0;
+        uint8_t tp = PACKET_TYPE_UNKNOWN;
         int t = 0;
         int s = 0;
         int iv = 0;
@@ -176,7 +179,7 @@ namespace radio {
 
         // missing or empty packet has 1 byte
         // need at least 9 bytes to read header of packet
-        if (p && p->length() >= 9) {
+        if (p && p.length() >= 9) {
             uint8_t* buf = p.getBytes();
             memcpy(&tp, buf, 1);
             memcpy(&t, buf + 1, 4);
@@ -203,7 +206,10 @@ namespace radio {
                         m = getStringValue(buf + VALUE_PACKET_NAME_LEN_OFFSET, MAX_FIELD_NAME_LENGTH);
                     }
                     break;
-                default: // unknown packet
+                default: // unknown packet, clear data
+                    tp = PACKET_TYPE_UNKNOWN;
+                    t = 0;
+                    s = 0;
                     return;
             }
         }
