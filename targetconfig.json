@@ -122,7 +122,7 @@
             "KitronikLtd/pxt-kitronik-accessbit",
             "kaku111/pxt-tobbieII",
             "alankrantas/pxt-DHT11_DHT22",
-            "e-radionicacom/pxt-wifi/"
+            "e-radionicacom/pxt-wifi"
         ],
         "preferredRepos": [
             "Microsoft/pxt-neopixel",
