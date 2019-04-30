@@ -15,7 +15,9 @@ namespace radio {
             return r;
         }
         if (!radioEnabled) {
-            uBit.radio.setGroup(pxt::programHash());
+            // Changing default group to zero, it was program hash before (pxt::programHash());
+            // Python has default group zero as well.
+            uBit.radio.setGroup(0);
             uBit.radio.setTransmitPower(6); // start with high power by default
             radioEnabled = true;
         }
