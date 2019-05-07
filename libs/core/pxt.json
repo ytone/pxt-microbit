@@ -49,7 +49,8 @@
         "fixed.ts",
         "templates.ts",
         "parts/speaker.svg",
-        "parts/headphone.svg"
+        "parts/headphone.svg",
+        "rika.ts"
     ],
     "public": true,
     "dependencies": {},
