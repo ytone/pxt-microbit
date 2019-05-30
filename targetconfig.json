@@ -165,6 +165,7 @@
         "zh-TW"
     ],
     "galleries": {
+        "理科": "rika",
         "Tutorials": "tutorials",
         "Games": "projects/games",
         "Radio Games": "projects/radio-games",
