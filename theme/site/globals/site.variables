@@ -7,18 +7,18 @@
 @headerFont        : Roboto,"Arial Narrow","Helvetica Neue",Helvetica,Arial,sans-serif;
 @pageFont          : Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
-@primaryColor: @purple;
+@primaryColor: @green;
 
 @teal: #3891A6;
-@blue: #3454D1;
+@blue: #439EF9;
 @red: #EF767A;
 @pink: #F46197;
 @yellow: #FDE74C;
 @grey: #95a5a6;
-@green: #107C10;
+@green: #30bf55;
 
 /* Microbit.org colors */
-@orange: #ff8b27;
+@orange: #FF7E00;
 @purple: #6633cc;
 
 @pageBackground: #fff;
@@ -31,8 +31,8 @@
    Menu
 --------------------*/
 
-@mainMenuInvertedBackground: @blue;
-@mainMenuTutorialBackground: @orange;
+@mainMenuInvertedBackground: @green;
+@mainMenuTutorialBackground: @green;
 
 @mainMenuBlocksJsToggleColor: @primaryColor;
 
@@ -85,3 +85,6 @@
 
 @serialTextColor: black;
 @serialGraphBackground: #d9d9d9;
+
+
+@loaderImageUrl: "https://proguru.jp/static/images/gramin01.png";
