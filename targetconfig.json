@@ -166,18 +166,7 @@
     ],
     "galleries": {
         "理科": "rika",
-        "Tutorials": "tutorials",
-        "Games": "projects/games",
-        "Radio Games": "projects/radio-games",
-        "Fashion": "projects/fashion",
-        "Music": "projects/music",
-        "Toys": "projects/toys",
-        "Science": "projects/science",
-        "Tools": "projects/tools",
-        "Turtle": "projects/turtle",
-        "Blocks To JavaScript": "courses/blocks-to-javascript",
-        "Courses": "courses",
-        "Behind the MakeCode Hardware": "behind-the-makecode-hardware"
+        "Tutorials": "tutorials"
     },
     "electronManifest": {
         "latest": "v1.2.13"
