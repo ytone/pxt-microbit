@@ -46,6 +46,8 @@
   },
   "dependencies": {
     "pxt-common-packages": "^6.8.3",
-    "pxt-core": "^5.12.4"
+    "pxt-core": "^5.12.4",
+    "serialport": "^7.1.5",
+    "webusb": "^1.2.2"
   }
 }
