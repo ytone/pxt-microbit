@@ -5,7 +5,7 @@
     {
         "name": "理科",
         "url": "/rika",
-        "imageUrl": "/rika/icon.png",
+        "imageUrl": "/static/rika/icon.png",
         "largeImageUrl": "/static/mb/projects/flashing-heart/sim.gif"
     },
     {
