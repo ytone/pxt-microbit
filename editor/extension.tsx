@@ -990,7 +990,7 @@ function showUploadInstructionsAsync(fn: string, url: string, confirmAsync: (opt
                                 <div className="column">
                                     <div className="ui">
                                         <div className="image">
-                                            <img className="ui medium rounded image" src="./static/download/connect.png" />
+                                            <img className="ui medium rounded image" src="./docs/static/download/connect.png" />
                                         </div>
                                         <div className="content">
                                             <div className="description">

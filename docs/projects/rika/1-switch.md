@@ -11,9 +11,9 @@ micro:bitでスイッチをオン・オフできるプログラミングをし�
 
 ## Step 1 @fullscreen
 
-``||rika::スイッチON||`` と ``||rika::スイッチON||`` ブロックを ``||input:ボタンが押されたとき||`` の中においてみよう。
+``||rika::スイッチON||`` と ``||rika::スイッチON||`` ブロックを ``||input:ボタンが押されたとき||`` の中においてみよう！
 
-![ブロックを繋げましょう](/rika/anime-switch.gif)
+![ブロックを繋げましょう](/docs/static/rika/anime-switch.gif)
 
 ## Step 2 @fullscreen
 
